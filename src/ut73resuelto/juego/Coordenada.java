@@ -12,6 +12,8 @@ class Coordenada {
     private static final Intervalo LIMITES = new Intervalo(1, 3);
 
     public Coordenada() {
+        this.fila = 0;
+        this.columna = 0;
     }
 
     public Coordenada(int fila, int columna) {
