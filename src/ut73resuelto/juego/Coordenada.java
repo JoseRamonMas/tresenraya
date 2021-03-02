@@ -7,6 +7,7 @@ class Coordenada {
 
     private int fila;
     private int columna;
+    
 
     private static final Intervalo LIMITES = new Intervalo(1, 3);
 
