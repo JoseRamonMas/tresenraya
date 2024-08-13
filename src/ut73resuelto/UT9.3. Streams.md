@@ -12,7 +12,9 @@ Estes operacions realitzades amb els Stream poden ser de dos tipus:
 
 Les col·leccions en Java ofereixen mètodes per a passar a streams dels objectes que contenen (mètodes stream i parallelStream). Així, si tenim un ArrayList anomenat “usuaris” que conté objectes de tipus “Usuari” podríem fer:
 
-Stream\<Usuari\> fluxUsuaris \= usuaris.stream();
+```java
+Stream<Usuari> fluxUsuaris = usuaris.stream();
+```
 
 La idea és crear, a partir d'una col·lecció o taula (Map), o bé explícitament, un Stream al qual s'apliquen operacions intermèdies encadenades (el que es coneix com una canonada o pipeline), obtenint un resultat final per mitjà d'una operació terminal.
 
@@ -55,6 +57,13 @@ Hi ha diverses maneres d'obtenir un Stream inicial, és a dir, que no procedisca
 
 <img src="UT9.3. Streams_images/image_2.png" alt="Image 2">
 
+```java
+List<String> localitats = new ArrayList<>(List.of("Petrer", "Elda", "Novelda", "Villena", "Monover", "Castalla", "Alacant", "Elx"));
+Stream<String> streamLocalitats = localitats.stream();
+streamLocalitats.forEach(c -> System.out.println(c.toUpperCase()));
+
+```
+
 El Stream localitats **conté una còpia de totes les dades de la llista, no una referència** als originals. Per tant els canvis que es facen al Stream no es reflecteixen a la llista original que queda intacta.
 
 També podem crear IntStream fent un rang  obert o bé tancat:
@@ -71,10 +80,21 @@ IntStream aleatoris \= new Random().ints(100, 0, 10);
 Un altre exemple, la classe String ens ofereix “chars()” que genera un IntStream amb tots els seus caràcters (en format enter).
 
 <img src="UT9.3. Streams_images/image_3.png" alt="Image 3"><img src="UT9.3. Streams_images/image_4.png" alt="Image 4">  
-En realitat no necessitem crear les variables:  
-"Hola món\!".chars().forEach(...)
 
-*Prova el mètode “tokens()” de la classe Scanner.*
+```java
+String hola = "Hola món!";
+hola.chars().forEach(System.out::println);
+```
+```java
+String hola = "Hola món!";
+hola.chars().forEach(i -> System.out.println((char) i));
+
+```
+
+En realitat no necessitem crear les variables:  
+`"Hola món".chars().forEach(...)`
+
+*Prova el mètode “`tokens()`” de la classe `Scanner`.*
 
 # Opcions de filtratge
 
