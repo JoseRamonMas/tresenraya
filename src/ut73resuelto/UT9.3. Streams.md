@@ -58,7 +58,9 @@ Hi ha diverses maneres d'obtenir un Stream inicial, és a dir, que no procedisca
 <img src="UT9.3. Streams_images/image_2.png" alt="Image 2">
 
 ```java
-List<String> localitats = new ArrayList<>(List.of("Petrer", "Elda", "Novelda", "Villena", "Monover", "Castalla", "Alacant", "Elx"));
+List<String> localitats = new ArrayList<>(
+	List.of("Petrer", "Elda", "Novelda", "Villena", "Monover", "Castalla", "Alacant", "Elx")
+);
 Stream<String> streamLocalitats = localitats.stream();
 streamLocalitats.forEach(c -> System.out.println(c.toUpperCase()));
 
